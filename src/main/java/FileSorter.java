@@ -10,8 +10,9 @@ public class FileSorter {
     public static void fileSort(String fileName) {
         List<String> lines = new ArrayList<>();
 
-        /* Откроем поток чтения из файла
-        и перезапишем построчно текст в List */
+        /**
+         * Откроем поток чтения из файла и перезапишем построчно текст в List
+         */
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
                         new FileInputStream(fileName)))) {
@@ -25,12 +26,10 @@ public class FileSorter {
             System.out.println(ex.getMessage());
         }
 
-        /* Отсортируем List стандартным
-        методом библиотеки Collections */
+        /** Отсортируем List стандартным методом библиотеки Collections */
         Collections.sort(lines);
 
-        /* Откроем поток записи в файл
-        и построчно запишем отсортированный List */
+        /** Откроем поток записи в файл и построчно запишем отсортированный List */
         try (FileWriter writer = new FileWriter(fileName, false)) {
             for (String line : lines) {
                 writer.write(line + "\n");

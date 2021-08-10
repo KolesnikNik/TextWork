@@ -8,8 +8,7 @@ import java.io.InputStreamReader;
 public class TextWriter {
     public static void textWriter(String fileName) {
 
-        /* Откроем потоки записи в файл
-        и чтения из консоли */
+        /** Откроем потоки записи в файл и чтения из консоли */
         try (FileWriter writer = new FileWriter(
                 fileName, true);
              BufferedReader reader = new BufferedReader(
@@ -17,7 +16,7 @@ public class TextWriter {
             System.out.println("Введите строку");
             String testText = reader.readLine();
 
-            /* Продолжаем запись пока не получим пустую строку */
+            /** Продолжаем запись пока не получим пустую строку */
             while (testText.length() > 0) {
                 System.out.println("Введите строку, для закрытия набора введите пустую строку");
                 writer.write(testText + "\n");
