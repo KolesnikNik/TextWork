@@ -5,10 +5,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Класс, содержащий метод реализующий запись и создание файла
+ * @author N.S.Kolesnik
+ * @version 1.0
+ */
+
 public class TextWriter {
     public static void textWriter(String fileName) {
 
-        /** Откроем потоки записи в файл и чтения из консоли */
+        /** Поток записи в файл и поток чтения из консоли
+         * @param fileName - имя файла для записи.
+         */
         try (FileWriter writer = new FileWriter(
                 fileName, true);
              BufferedReader reader = new BufferedReader(
@@ -16,7 +24,9 @@ public class TextWriter {
             System.out.println("Введите строку");
             String testText = reader.readLine();
 
-            /** Продолжаем запись пока не получим пустую строку */
+            /** Процедура записи в файл
+             * проводится до первой пустой строки.
+             */
             while (testText.length() > 0) {
                 System.out.println("Введите строку, для закрытия набора введите пустую строку");
                 writer.write(testText + "\n");
